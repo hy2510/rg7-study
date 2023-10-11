@@ -1,0 +1,382 @@
+#ebook {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    z-index: 0;
+  }
+  @include landscape {
+    padding-top: 0;
+  }
+}
+
+.ebook-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: calc(100% - 40px);
+  padding: 6px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .ebook-header-s1 {
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 500;
+    gap: 5px;
+    .home-button {
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .book-title {
+      color: #fff;
+      font-size: 1.1em;
+      font-weight: 500;
+    }
+  }
+  .ebook-header-s2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .menu-button {
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.ebook-body {
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+}
+
+.ebook-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  .pages {
+    display: flex;
+    .page {
+      position: relative;
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+}
+.page-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: #555;
+  .progress {
+    height: 4px;
+    background-color: #2877ff;
+    border-radius: 0 100px 100px 0;
+    transition: width 0.2s;
+  }
+}
+.ebook-controls {
+  width: calc(100% - 20px);
+  color: #fff;
+  background-color: #111111;
+  border-radius: 0 0 20px 20px;
+  padding: 8px 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  .read-mode {
+    font-family: "SDRGGothicNeoRound-bBd";
+    font-size: 0.9em;
+    padding-left: 10px;
+    display: flex;
+    gap: 10px;
+    .read-mode-option {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+  }
+  .audio-control {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    .backward,
+    .forward {
+      min-width: 30px;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      cursor: pointer;
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+    .play {
+      min-width: 30px;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      cursor: pointer;
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+  .full-screen {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    padding-right: 10px;
+    .full-screen-button {
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .word-button {
+      cursor: pointer;
+      font-family: "SDRGGothicNeoRound-bBd";
+      font-size: 0.9em;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  }
+}
+.ebook-page-arrows {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: -80px;
+  right: -80px;
+  top: calc(50% - 30px);
+  .left-button,
+  .right-button {
+    button {
+      background-color: transparent !important;
+      padding: 0 !important;
+    }
+  }
+  .right-button {
+    position: absolute;
+    right: 0;
+  }
+}
+
+.t {
+  transform-origin: top left;
+  line-height: 1;
+  position: absolute;
+  transform: scale(0.25);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.text-wrapper {
+  position: relative;
+  display: block;
+}
+
+.slide-in-right {
+  -webkit-animation: slide-in-right 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both !important;
+  animation: slide-in-right 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+}
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(50px);
+    transform: translateX(50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  -webkit-animation: slide-in-left 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both !important;
+  animation: slide-in-left 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+}
+@-webkit-keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+// 좌측 메뉴 펼침
+.step-score-board {
+  @include modal-bg;
+  .board {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    color: #ffffff;
+    font-weight: 600;
+    width: 100%;
+    max-width: 400px;
+    height: calc(100% - 40px);
+    background-color: #3ab6ff;
+    margin-left: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include portrait-mobile {
+      max-width: 300px;
+    }
+    @include landscape-mobile {
+      max-width: 300px;
+    }
+    .sec1 {
+      .delete-bar {
+        .btn-delete {
+          cursor: pointer;
+          -webkit-tap-highlight-color: transparent !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          margin-left: auto;
+          margin-bottom: 20px;
+        }
+      }
+      .book-info {
+        .book-code {
+          margin-bottom: 5px;
+        }
+        .book-title {
+          font-size: 1.2em;
+          margin-bottom: 15px;
+        }
+      }
+      .step-info {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-bottom: 20px;
+        .step {
+          text-align: center;
+          padding: 10px 0px;
+          border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+          &.on {
+            border-bottom: 4px solid rgba(255, 255, 255, 1);
+          }
+        }
+      }
+      .score-info {
+        .quiz-type {
+          margin-bottom: 18px;
+        }
+        .score {
+          .score-row {
+            display: flex;
+            &:nth-child(1) {
+              border-top: 1px solid;
+              background: rgba(255, 255, 255, 0.3);
+            }
+            .score-col {
+              width: 100%;
+              text-align: center;
+              padding: 10px 0px;
+              border-left: 1px solid;
+              border-bottom: 1px solid;
+              &:nth-child(1) {
+                width: 30%;
+                border-left: none;
+                background: rgba(255, 255, 255, 0.3);
+              }
+            }
+          }
+        }
+      }
+    }
+    .sec2 {
+      display: flex;
+      justify-content: space-around;
+      .btn-go-to-story,
+      .btn-book-info,
+      .btn-exit {
+        cursor: pointer;
+        text-align: center;
+        .txt {
+          font-size: 0.8em;
+          padding: 5px 0px;
+        }
+      }
+    }
+  }
+}

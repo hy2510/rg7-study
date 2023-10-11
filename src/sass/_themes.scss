@@ -1,0 +1,2125 @@
+body {
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  overflow: hidden;
+}
+
+.quiz-contents-top {
+  .tabs {
+    .tab-button {
+      @include dark-mode {
+        background-color: #00000010 !important;
+        &.on {
+          background-color: #00000080 !important;
+        }
+      }
+    }
+  }
+}
+
+@mixin answer-item-mix {
+  background-color: rgba($color: #fff, $alpha: 0.8) !important;
+  border-color: rgba($color: #000, $alpha: 0.2) !important;
+  border-width: 2px;
+  @include dark-mode {
+    background-color: rgba($color: #000, $alpha: 0.4) !important;
+    border-color: rgba($color: #fff, $alpha: 0.4) !important;
+  }
+}
+
+// KA 테마 - 정글
+.theme-jungle {
+  background-color: #b6dfff;
+  background-image: url("../assets/themes/jungle/theme-jungle-day-left.svg"),
+    url("../assets/themes/jungle/theme-jungle-day-right.svg");
+  background-position: left 0 bottom 0, right 10px bottom 0;
+  background-repeat: no-repeat;
+  @include portrait-mobile {
+    background-size: 30%, 30%;
+  }
+  @include portrait {
+    background-size: 30%, 30%;
+  }
+  @include landscape {
+    background-size: 20%, 20%;
+  }
+  @include dark-mode {
+    background-color: #2f3941;
+    background-image: url("../assets/themes/jungle/theme-jungle-night-left.svg"),
+      url("../assets/themes/jungle/theme-jungle-night-right.svg");
+  }
+  #quiz-header {
+    background-color: #99cc4c;
+    @include dark-mode {
+      background-color: #3d521e;
+    }
+  }
+  .page-bg {
+    background-image: url("../assets/themes/jungle/theme-jungle-day-flower.svg"),
+      url("../assets/themes/jungle/theme-jungle-day-bottom.svg");
+    background-repeat: no-repeat, repeat-x;
+    background-position: top 10px right 30%, top 0 left 0;
+    @include portrait-mobile {
+      background-size: 10%, 180%;
+      background-position: top 5px right 10%, top 0 left 0;
+    }
+    @include portrait {
+      background-size: 6%, 80%;
+      background-position: top 0 right 10%, top 0 left 0;
+    }
+    @include landscape {
+      background-size: 4%, 60%;
+      background-position: top 0 right 10%, top 0 left 0;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/jungle/theme-jungle-night-flower.svg"),
+        url("../assets/themes/jungle/theme-jungle-night-bottom.png");
+    }
+  }
+
+  $bg-color: #aed3f050 !important;
+  $bg-color-dark: #00000050 !important;
+  $blur: blur(50px);
+
+  #listening-activity-1 {
+    .img-hat {
+      &.hat-0 {
+        background-image: url("../assets/themes/jungle/img_croker_01.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/jungle/img_hippo_01.svg");
+        }
+      }
+      &.hat-1 {
+        background-image: url("../assets/themes/jungle/img_croker_02.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/jungle/img_hippo_02.svg");
+        }
+      }
+      &.hat-2 {
+        background-image: url("../assets/themes/jungle/img_croker_03.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/jungle/img_hippo_03.svg");
+        }
+      }
+      &.hat-3 {
+        background-image: url("../assets/themes/jungle/img_croker_04.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/jungle/img_hippo_04.svg");
+        }
+      }
+      &.hat-4 {
+        background-image: url("../assets/themes/jungle/img_croker_05.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/jungle/img_hippo_05.svg");
+        }
+      }
+      @include portrait-mobile {
+        height: 40px;
+      }
+      @include landscape {
+        height: 60px;
+      }
+    }
+    .img-pic {
+      @include dark-mode {
+        .box {
+          background-image: url("../assets/themes/jungle/img_hippo_tooth.svg"),
+            url("../assets/themes/jungle/img_hippo_tooth.svg") !important;
+          background-repeat: no-repeat !important;
+          background-position: top left 2px, top right 2px !important;
+        }
+      }
+      &.pic-0 {
+        background-color: #4fa9fd;
+        .word {
+          background-color: #4fa9fd90;
+        }
+        @include dark-mode {
+          background-color: #93cbff;
+          .word {
+            background-color: #93cbff90;
+          }
+        }
+      }
+      &.pic-1 {
+        background-color: #914ffd;
+        .word {
+          background-color: #914ffd90;
+        }
+        @include dark-mode {
+          background-color: #cbacff;
+          .word {
+            background-color: #cbacff90;
+          }
+        }
+      }
+      &.pic-2 {
+        background-color: #fb75b5;
+        .word {
+          background-color: #fb75b590;
+        }
+        @include dark-mode {
+          background-color: #ffbddd;
+          .word {
+            background-color: #ffbddd90;
+          }
+        }
+      }
+      &.pic-3 {
+        background-color: #f5c93b;
+        .word {
+          background-color: #f5c93b90;
+        }
+        @include dark-mode {
+          background-color: #ffe593;
+          .word {
+            background-color: #ffe59390;
+          }
+        }
+      }
+      &.pic-4 {
+        background-color: #aad81a;
+        .word {
+          background-color: #aad81a90;
+        }
+        @include dark-mode {
+          background-color: #ebfeb0;
+          .word {
+            background-color: #ebfeb090;
+          }
+        }
+      }
+      @include portrait-mobile {
+        padding: 8px;
+      }
+      img {
+        width: calc(100% - 80px);
+        border-radius: 10px;
+        @include portrait-mobile {
+          width: 100%;
+        }
+        @include portrait {
+          width: 100%;
+        }
+        @include landscape {
+          width: calc(100% - 40px);
+        }
+      }
+    }
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KA 테마 - 남극
+.theme-antarctica {
+  background-color: #7ec4f5;
+  background-image: url("../assets/themes/antarctica/theme-antarctica-day-top.svg"),
+    url("src/assets/themes/antarctica/theme-antarctica-day-sky.svg");
+  background-repeat: no-repeat, repeat-x;
+  background-position: top right 10%;
+  background-size: auto, auto 10%;
+  @include portrait-mobile {
+    background-size: auto 25%, auto 10%;
+    background-position: top left 100px;
+  }
+  @include portrait {
+    background-size: auto 23%, auto 10%;
+    background-position: top left 200px;
+  }
+  @include landscape {
+    background-size: auto 25%, auto 10%;
+  }
+  @include dark-mode {
+    background-color: #002754;
+    background-image: url("../assets/themes/antarctica/theme-antarctica-night-top.svg"),
+      url("src/assets/themes/antarctica/theme-antarctica-night-sky.svg");
+  }
+  #quiz-body {
+    background-image: url("../assets/themes/antarctica/theme-antarctica-day-left.svg"),
+      url("../assets/themes/antarctica/theme-antarctica-day-right.svg");
+    background-position: left 10% bottom, right 10% bottom;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-position: left 0 bottom, right 0 bottom;
+      background-size: 30%, 50%;
+    }
+    @include portrait {
+      background-position: left 0 bottom, right 0 bottom;
+      background-size: 30%, 50%;
+    }
+    @include landscape {
+      background-position: left 0 bottom, right 0 bottom;
+      background-size: 20%, 40%;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/antarctica/theme-antarctica-night-left.svg"),
+        url("../assets/themes/antarctica/theme-antarctica-night-right.svg");
+    }
+  }
+
+  $bg-color: #3ab6ff50 !important;
+  $bg-color-dark: #00000050 !important;
+  $blur: blur(50px);
+
+  #listening-activity-1 {
+    .img-hat {
+      &.hat-0 {
+        background-image: url("../assets/themes/antarctica/img_pen_01.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/antarctica/img_bear_01.svg");
+        }
+      }
+      &.hat-1 {
+        background-image: url("../assets/themes/antarctica/img_pen_02.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/antarctica/img_bear_02.svg");
+        }
+      }
+      &.hat-2 {
+        background-image: url("../assets/themes/antarctica/img_pen_03.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/antarctica/img_bear_03.svg");
+        }
+      }
+      &.hat-3 {
+        background-image: url("../assets/themes/antarctica/img_pen_04.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/antarctica/img_bear_04.svg");
+        }
+      }
+      &.hat-4 {
+        background-image: url("../assets/themes/antarctica/img_pen_05.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/antarctica/img_bear_05.svg");
+        }
+      }
+      @include portrait-mobile {
+        height: 40px;
+      }
+      @include landscape {
+        height: 60px;
+      }
+    }
+    .img-pic {
+      &.pic-0 {
+        background-color: #4fa9fd;
+        .word {
+          background-color: #4fa9fd90;
+        }
+      }
+      &.pic-1 {
+        background-color: #914ffd;
+        .word {
+          background-color: #914ffd90;
+        }
+      }
+      &.pic-2 {
+        background-color: #fb75b5;
+        .word {
+          background-color: #fb75b590;
+        }
+      }
+      &.pic-3 {
+        background-color: #f5c93b;
+        .word {
+          background-color: #f5c93b90;
+        }
+      }
+      &.pic-4 {
+        background-color: #aad81a;
+        .word {
+          background-color: #aad81a90;
+        }
+      }
+      @include portrait-mobile {
+        padding: 8px;
+      }
+      img {
+        width: calc(100% - 80px);
+        border-radius: 10px;
+        @include portrait-mobile {
+          width: 100%;
+        }
+        @include portrait {
+          width: 100%;
+        }
+        @include landscape {
+          width: calc(100% - 40px);
+        }
+      }
+    }
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KA 테마 - 동물원1
+.theme-zoo-1 {
+  background-color: #aee062;
+  @include dark-mode {
+    background-color: #465a27;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/zoo1/theme-zoo-day-left.svg"),
+      url("../assets/themes/zoo1/theme-zoo-day-right.svg"),
+      url("../assets/themes/zoo1/theme-zoo-day-pattern.svg"),
+      url("../assets/themes/zoo1/theme-zoo-day-bottom.svg");
+    background-repeat: no-repeat, no-repeat, repeat-x, repeat-x;
+    background-position: bottom left 10px, bottom right 10px, bottom center,
+      bottom 20px center;
+    @include portrait-mobile {
+      background-size: 50%, 50%, 8%, 100%;
+      background-position: bottom left -50px, bottom right -50px, left bottom,
+        left bottom 10px;
+    }
+    @include portrait {
+      background-size: 40%, 40%, 5%, 100%;
+      background-position: bottom left -50px, bottom right -50px, left bottom,
+        left bottom 10px;
+    }
+    @include landscape {
+      background-size: 30%, 30%, 5%, 100%;
+      background-position: bottom left -50px, bottom right -50px, left bottom,
+        left bottom 10px;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/zoo1/theme-zoo-night-left.svg"),
+        url("../assets/themes/zoo1/theme-zoo-night-right.svg"),
+        url("../assets/themes/zoo1/theme-zoo-night-pattern.svg"),
+        url("../assets/themes/zoo1/theme-zoo-night-bottom.svg");
+    }
+  }
+
+  $bg-color: #91c14850 !important;
+  $bg-color-dark: #00000050 !important;
+  $blur: blur(50px);
+
+  #listening-activity-1 {
+    .img-hat {
+      &.hat-0 {
+        background-image: url("../assets/themes/zoo1/img_panda_01.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo1/img_gira_01.svg");
+        }
+      }
+      &.hat-1 {
+        background-image: url("../assets/themes/zoo1/img_panda_02.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo1/img_gira_02.svg");
+        }
+      }
+      &.hat-2 {
+        background-image: url("../assets/themes/zoo1/img_panda_03.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo1/img_gira_03.svg");
+        }
+      }
+      &.hat-3 {
+        background-image: url("../assets/themes/zoo1/img_panda_04.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo1/img_gira_04.svg");
+        }
+      }
+      &.hat-4 {
+        background-image: url("../assets/themes/zoo1/img_panda_05.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo1/img_gira_05.svg");
+        }
+      }
+      @include portrait-mobile {
+        height: 40px;
+      }
+      @include landscape {
+        height: 60px;
+      }
+    }
+    .img-pic {
+      &.pic-0 {
+        background-color: #4fa9fd;
+        .word {
+          background-color: #4fa9fd90;
+        }
+        @include dark-mode {
+          background-color: #4fa9fd;
+          .word {
+            background-color: #4fa9fd90;
+          }
+        }
+      }
+      &.pic-1 {
+        background-color: #f5c93b;
+        .word {
+          background-color: #f5c93b90;
+        }
+        @include dark-mode {
+          background-color: #a876fa;
+          .word {
+            background-color: #a876fa90;
+          }
+        }
+      }
+      &.pic-2 {
+        background-color: #914ffd;
+        .word {
+          background-color: #914ffd90;
+        }
+        @include dark-mode {
+          background-color: #fb75b5;
+          .word {
+            background-color: #fb75b590;
+          }
+        }
+      }
+      &.pic-3 {
+        background-color: #aad81a;
+        .word {
+          background-color: #aad81a90;
+        }
+        @include dark-mode {
+          background-color: #da985f;
+          .word {
+            background-color: #da985f90;
+          }
+        }
+      }
+      &.pic-4 {
+        background-color: #fb75b5;
+        .word {
+          background-color: #fb75b590;
+        }
+        @include dark-mode {
+          background-color: #94c300;
+          .word {
+            background-color: #94c30090;
+          }
+        }
+      }
+      @include portrait-mobile {
+        padding: 8px;
+      }
+      img {
+        width: calc(100% - 80px);
+        border-radius: 10px;
+        @include portrait-mobile {
+          width: 100%;
+        }
+        @include portrait {
+          width: 100%;
+        }
+        @include landscape {
+          width: calc(100% - 40px);
+        }
+      }
+    }
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KA 테마 - 동물원2
+.theme-zoo-2 {
+  background-color: #bcedfc;
+  @include dark-mode {
+    background-position: top 0;
+    background: url("../assets/images/img_star.svg") repeat-x,
+      linear-gradient(180deg, #0e0f20 19.22%, #350872 100%);
+  }
+  .page-bg {
+    background-image: url("../assets/themes/zoo2/zoo_bg.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/zoo2/zoo_bg_d.svg");
+    }
+    .bg-items {
+      background-image: url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg");
+      background-position: top 10% left 10%, top 50% right 10%,
+        top 60% right 20%;
+      background-repeat: no-repeat;
+      background-size: 200px, 150px, 120px;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/zoo2/img_zoo_l.svg"),
+      url("../assets/themes/zoo2/img_zoo_r.svg");
+    background-position: left 0 bottom 15px, right 0 bottom 15px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/zoo2/img_zoo_l.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/zoo2/img_zoo_l.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/zoo2/img_zoo_l_dark.svg"),
+        url("../assets/themes/zoo2/img_zoo_r_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/zoo2/img_zoo_l_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/zoo2/img_zoo_l_dark.svg");
+      }
+    }
+  }
+
+  $bg-color: #9fcce250 !important;
+  $bg-color-dark: #00000050 !important;
+  $blur: blur(50px);
+
+  #listening-activity-1 {
+    .img-hat {
+      &.hat-0 {
+        background-image: url("../assets/themes/zoo2/img_tiger_01.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo2/img_rhino_01.svg");
+        }
+      }
+      &.hat-1 {
+        background-image: url("../assets/themes/zoo2/img_tiger_02.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo2/img_rhino_02.svg");
+        }
+      }
+      &.hat-2 {
+        background-image: url("../assets/themes/zoo2/img_tiger_03.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo2/img_rhino_03.svg");
+        }
+      }
+      &.hat-3 {
+        background-image: url("../assets/themes/zoo2/img_tiger_04.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo2/img_rhino_04.svg");
+        }
+      }
+      &.hat-4 {
+        background-image: url("../assets/themes/zoo2/img_tiger_05.svg");
+        @include dark-mode {
+          background-image: url("../assets/themes/zoo2/img_rhino_05.svg");
+        }
+      }
+      @include portrait-mobile {
+        height: 40px;
+      }
+      @include landscape {
+        height: 60px;
+      }
+    }
+    .img-pic {
+      &.pic-0 {
+        background-color: #4fa9fd;
+        .word {
+          background-color: #4fa9fd90;
+        }
+        @include dark-mode {
+          background-color: #4fa9fd;
+          .word {
+            background-color: #4fa9fd90;
+          }
+        }
+      }
+      &.pic-1 {
+        background-color: #914ffd;
+        .word {
+          background-color: #914ffd90;
+        }
+        @include dark-mode {
+          background-color: #914ffd;
+          .word {
+            background-color: #914ffd90;
+          }
+        }
+      }
+      &.pic-2 {
+        background-color: #fb75b5;
+        .word {
+          background-color: #fb75b590;
+        }
+        @include dark-mode {
+          background-color: #fb75b5;
+          .word {
+            background-color: #fb75b590;
+          }
+        }
+      }
+      &.pic-3 {
+        background-color: #f5c93b;
+        .word {
+          background-color: #f5c93b90;
+        }
+        @include dark-mode {
+          background-color: #f5c93b;
+          .word {
+            background-color: #f5c93b90;
+          }
+        }
+      }
+      &.pic-4 {
+        background-color: #aad81a;
+        .word {
+          background-color: #aad81a90;
+        }
+        @include dark-mode {
+          background-color: #aad81a;
+          .word {
+            background-color: #aad81a90;
+          }
+        }
+      }
+      @include portrait-mobile {
+        padding: 8px;
+      }
+      img {
+        width: calc(100% - 80px);
+        border-radius: 10px;
+        @include portrait-mobile {
+          width: 100%;
+        }
+        @include portrait {
+          width: 100%;
+        }
+        @include landscape {
+          width: calc(100% - 40px);
+        }
+      }
+    }
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KB, KC 테마 - 숲속
+.theme-forest {
+  background-color: #aee062;
+  @include dark-mode {
+    background-color: #495b2d;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/forest/theme-forest-day-pattern.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/forest/theme-forest-night-bottom.svg");
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/forest/theme-forest-day-left.svg"),
+      url("../assets/themes/forest/theme-forest-day-right.svg");
+    background-position: left 0 bottom 30px, right 0 bottom 5px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-position: left -15% bottom 30px, right -30% bottom 5px;
+      background-size: 50%;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/forest/theme-forest-night-left.svg"),
+        url("../assets/themes/forest/theme-forest-night-right.svg");
+      background-position: left 0 bottom 120px, right 0 bottom 10px;
+      @include portrait-mobile {
+        background-position: left -20% bottom 15%, right -30% bottom 5px;
+        background-size: 50%;
+      }
+    }
+  }
+
+  $bg-color: #8fbb4d50 !important;
+  $bg-color-dark: #00000020 !important;
+  $blur: blur(30px);
+  $color: #000000 !important;
+  $color-dark: #ffffff !important;
+
+  #listening-activity-2 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .word {
+        bottom: 8%;
+        @include dark-mode {
+          padding-left: 10px;
+          bottom: 28%;
+        }
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KB, KC 테마 - 키즈룸
+.theme-kids-room {
+  background-color: #f6efd4;
+  @include dark-mode {
+    background-color: #223173;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/kids_room/theme-kids-room-day-pattern.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/kids_room/theme-kids-room-pattern.svg");
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/kids_room/theme-kids-room-day-left.svg"),
+      url("../assets/themes/kids_room/theme-kids-room-day-right.svg");
+    background-position: left 5px bottom 15px, right 10px bottom 15px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-position: left -40% bottom 15px, right -30% bottom 15px;
+      background-size: 50%;
+    }
+    @include portrait {
+      background-position: left -10% bottom 15px, right -20% bottom 15px;
+      background-size: 30%;
+    }
+    @include landscape {
+      background-position: left -10% bottom 15px, right -20% bottom 15px;
+      background-size: 30%;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/kids_room/theme-kids-room-night-left.svg"),
+        url("../assets/themes/kids_room/theme-kids-room-night-right.svg");
+      @include portrait-mobile {
+        background-position: left -40% bottom 15px, right -60% bottom 15px;
+        background-size: 50%;
+      }
+    }
+  }
+
+  $bg-color: #efe3bd90 !important;
+  $bg-color-dark: #00000020 !important;
+  $blur: blur(30px);
+  $color: #000000 !important;
+  $color-dark: #ffffff !important;
+
+  #listening-activity-2 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .word {
+        bottom: 8%;
+        @include dark-mode {
+          padding-left: 10px;
+          bottom: 28%;
+        }
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KB, KC 테마 - 우주
+.theme-space {
+  // transform: scale(1.6);
+  background-color: #c8edfa;
+  @include dark-mode {
+    background-image: url("../assets/themes/space/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+    background-color: #07004d;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/space/theme-space-day-pattern.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/space/img_planet_land_01.svg");
+    }
+    .bg-items {
+      background-image: url("../assets/themes/img_cloud.svg"),
+        url("../assets/themes/img_cloud.svg"),
+        url("../assets/themes/img_cloud.svg");
+      background-position: top 10% left 10%, top 50% right 10%,
+        top 60% right 20%;
+      background-repeat: no-repeat;
+      background-size: 200px, 150px, 120px;
+      @include dark-mode {
+        background-image: none;
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/space/theme-space-day-left.svg"),
+      url("../assets/themes/space/theme-space-day-right.svg");
+    background-position: left 0 bottom 35px, right 0 bottom 35px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-position: left -40% bottom 20px, right -50% bottom 20px;
+      background-size: 50%;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/space/img_planet_l.svg"),
+        url("../assets/themes/space/img_planet_land_02.svg"),
+        url("../assets/themes/space/img_planet_r.svg");
+      background-position: left 0 bottom 10px, center bottom, right 0 bottom 5px;
+      @include portrait-mobile {
+        background-size: 50%;
+      }
+    }
+  }
+
+  $bg-color: #aed5e390 !important;
+  $bg-color-dark: #00000020 !important;
+  $blur: blur(30px);
+  $color: #000000 !important;
+  $color-dark: #ffffff !important;
+
+  #listening-activity-2 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .word {
+        bottom: 8%;
+        @include dark-mode {
+          padding-left: 10px;
+          bottom: 28%;
+        }
+      }
+    }
+  }
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// KB, KC 테마 - 농장
+.theme-farm {
+  background-color: #c8edfa;
+  @include dark-mode {
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+    background-color: #0e0f20;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/farm/img_farm_land.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/farm/img_farm_land_dark.svg");
+    }
+    .bg-items {
+      background-repeat: no-repeat;
+      @include dark-mode {
+        background-image: url("../assets/themes/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/farm/theme-farm-day-left.svg"),
+      url("../assets/themes/farm/theme-farm-day-right.svg");
+    background-position: left 10px bottom 15px, right 10px bottom 15px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-position: left -10% bottom 15px, right -10% bottom 15px;
+      background-size: 50%;
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/farm/theme-farm-night-left.svg"),
+        url("../assets/themes/farm/theme-farm-night-right.svg");
+    }
+  }
+
+  $bg-color: #aed5e390 !important;
+  $bg-color-dark: #00000020 !important;
+  $blur: blur(30px);
+  $color: #000000 !important;
+  $color-dark: #ffffff !important;
+
+  #listening-activity-2 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .word {
+        bottom: 8%;
+        @include dark-mode {
+          padding-left: 10px;
+          bottom: 28%;
+        }
+      }
+    }
+  }
+
+  #vocabulary-practice-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+  #vocabulary-test-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+        .voca-box {
+          background-color: #ffffff20 !important;
+          @include dark-mode {
+            background-color: #00000020 !important;
+          }
+        }
+      }
+      .voca-item-indicator {
+        .dot {
+          background-color: #ffffff;
+        }
+      }
+      .answer-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+  #reading-comprehension-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .answer-item {
+        background-color: rgba($color: #fff, $alpha: 0.8) !important;
+        @include dark-mode {
+          background-color: rgba($color: #000, $alpha: 0.4) !important;
+        }
+      }
+    }
+  }
+  #writing-activity-1 {
+    .body-contents {
+      background-color: $bg-color;
+      -webkit-backdrop-filter: $blur;
+      backdrop-filter: $blur;
+      border: none !important;
+      @include dark-mode {
+        background-color: $bg-color-dark;
+      }
+      .quiz-sentence {
+        color: $color;
+        @include dark-mode {
+          color: $color-dark;
+        }
+      }
+      .quiz-contents-top {
+        background-color: transparent;
+      }
+      .sentence-box {
+        @include answer-item-mix;
+      }
+      .word-card-item {
+        @include answer-item-mix;
+      }
+    }
+  }
+}
+
+// 1A 이상 테마 - 봄
+.theme-season-spring {
+  background-color: #fdf2f2;
+  @include dark-mode {
+    background-color: transparent;
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/season_spring/img_blossom_land.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/season_spring/img_blossom_land_dark.svg");
+    }
+    .bg-items {
+      background-image: url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg");
+      background-position: top 10% left 10%, top 50% right 10%,
+        top 60% right 20%;
+      background-repeat: no-repeat;
+      background-size: 200px, 150px, 120px;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/season_spring/img_blossom_l.svg"),
+      url("../assets/themes/season_spring/img_blossom_r.svg");
+    background-position: left 0 bottom 5px, right 0 bottom 5px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/season_spring/img_blossom_l.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/season_spring/img_blossom_l.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/season_spring/img_blossom_l_dark.svg"),
+        url("../assets/themes/season_spring/img_blossom_r_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/season_spring/img_blossom_l_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/season_spring/img_blossom_l_dark.svg");
+      }
+    }
+  }
+}
+
+// 1A 이상 테마 - 여름
+.theme-season-summer {
+  background-color: #cdf0fd;
+  @include dark-mode {
+    background-color: transparent;
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/season_summer/img_ground.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/season_summer/img_ground_dark.svg");
+    }
+    .bg-items {
+      background-image: url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg");
+      background-position: top 10% left 10%, top 50% right 10%,
+        top 60% right 20%;
+      background-repeat: no-repeat;
+      background-size: 200px, 150px, 120px;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/season_summer/img_parasol.svg"),
+      url("../assets/themes/season_summer/img_mountain.svg");
+    background-position: left 0 bottom 30px, right 0 bottom 33px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/season_summer/img_parasol.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/season_summer/img_parasol.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/season_summer/img_parasol_dark.svg"),
+        url("../assets/themes/season_summer/img_mountain_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/season_summer/img_parasol_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/season_summer/img_parasol_dark.svg");
+      }
+    }
+  }
+}
+
+// 1A 이상 테마 - 가을
+.theme-season-autumn {
+  background-color: #fffaec;
+  @include dark-mode {
+    background-color: transparent;
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/season_autumn/img_autumn_grass.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/season_autumn/img_autumn_grass_dark.svg");
+    }
+    .bg-items {
+      background-repeat: no-repeat;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/season_autumn/img_autumn_mountain.svg"),
+      url("../assets/themes/season_autumn/img_autumn_tree.svg");
+    background-position: left 0 bottom 15px, right 0 bottom 10px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/season_autumn/img_autumn_mountain.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/season_autumn/img_autumn_mountain.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/season_autumn/img_autumn_mountain_dark.svg"),
+        url("../assets/themes/season_autumn/img_autumn_tree_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/season_autumn/img_autumn_mountain_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/season_autumn/img_autumn_mountain_dark.svg");
+      }
+    }
+  }
+}
+
+// 1A 이상 테마 - 겨울
+.theme-season-winter {
+  background-color: #ecf7ff;
+  @include dark-mode {
+    background-color: transparent;
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/season_winter/img_snow_land.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/season_winter/img_snow_land_dark.svg");
+    }
+    .bg-items {
+      background-repeat: no-repeat;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/season_winter/img_snow_l.svg"),
+      url("../assets/themes/season_winter/img_snow_r.svg");
+    background-position: left 0 bottom 40px, right 0 bottom 40px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/season_winter/img_snow_l.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/season_winter/img_snow_l.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/season_winter/img_snow_l_dark.svg"),
+        url("../assets/themes/season_winter/img_snow_r_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/season_winter/img_snow_l_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/season_winter/img_snow_l_dark.svg");
+      }
+    }
+  }
+}
+
+// 1A 이상 테마 - 놀이터
+.theme-playground {
+  background-color: #cdf0fd;
+  @include dark-mode {
+    background-color: transparent;
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/playground/img_playg.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/playground/img_playg_dark.svg");
+    }
+    .bg-items {
+      background-image: url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg");
+      background-position: top 10% left 10%, top 50% right 10%,
+        top 60% right 20%;
+      background-repeat: no-repeat;
+      background-size: 200px, 150px, 120px;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/playground/img_slide.svg"),
+      url("../assets/themes/playground/img_swing.svg");
+    background-position: left 0 bottom 15px, right 0 bottom 15px;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/playground/img_slide.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/playground/img_slide.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/playground/img_slide_dark.svg"),
+        url("../assets/themes/playground/img_swing_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/playground/img_slide_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/playground/img_slide_dark.svg");
+      }
+    }
+  }
+}
+
+// 1A 이상 테마 - 캠핑
+.theme-camping {
+  background-color: #fffaec;
+  @include dark-mode {
+    background-color: transparent;
+    background-image: url("../assets/themes/img_star.svg");
+    background-repeat: repeat-x;
+    background-position: top 0;
+  }
+  .page-bg {
+    background-image: url("../assets/themes/camping/img_camping_land.svg");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    @include dark-mode {
+      background-image: url("../assets/themes/camping/img_camping_land_dark.svg");
+    }
+    .bg-items {
+      background-image: url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg"),
+        url("../assets/images/img_cloud.svg");
+      background-position: top 10% left 10%, top 50% right 10%,
+        top 60% right 20%;
+      background-repeat: no-repeat;
+      background-size: 200px, 150px, 120px;
+      @include dark-mode {
+        background-image: url("../assets/images/img_moon.svg");
+        background-position: top 10% right 10%;
+        background-size: 100px;
+        @include portrait-mobile {
+          background-image: none;
+        }
+        @include landscape-mobile {
+          background-image: none;
+        }
+      }
+    }
+  }
+  .page-body {
+    background-image: url("../assets/themes/camping/img_camping_l.svg"),
+      url("../assets/themes/camping/img_camping_r.svg");
+    background-position: left bottom 8px, right bottom;
+    background-repeat: no-repeat;
+    @include portrait-mobile {
+      background-image: url("../assets/themes/camping/img_camping_l.svg");
+    }
+    @include landscape-mobile {
+      background-image: url("../assets/themes/camping/img_camping_l.svg");
+    }
+    @include dark-mode {
+      background-image: url("../assets/themes/camping/img_camping_l_dark.svg"),
+        url("../assets/themes/camping/img_camping_r_dark.svg");
+      @include portrait-mobile {
+        background-image: url("../assets/themes/camping/img_camping_l_dark.svg");
+      }
+      @include landscape-mobile {
+        background-image: url("../assets/themes/camping/img_camping_l_dark.svg");
+      }
+    }
+  }
+}
