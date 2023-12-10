@@ -7,10 +7,10 @@
   .box {
     width: 100%;
     min-width: 320px;
-    max-width: 1180px;
+    // max-width: 1180px;
     margin: auto auto;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     .left {
       margin-left: 20px;
@@ -72,8 +72,52 @@
         }
       }
     }
+    .center {
+      display: flex;
+      margin: auto;
+      .quiz-timer {
+        display: flex;
+        align-items: center;
+        @include portrait-mobile {
+          display: none;
+        }
+        .ico-watch {
+          width: 24px;
+          height: 24px;
+          background-image: url("../assets/images/ico_watch.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-right: 10px;
+          @include portrait-mobile {
+            margin-right: 5px;
+            background-size: 80%;
+          }
+          @include landscape-mobile {
+            margin-right: 5px;
+            background-size: 80%;
+          }
+          @include dark-mode {
+            background-image: url("../assets/images/ico_watch_white.svg");
+          }
+        }
+        .counter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 20px;
+          font-weight: 600;
+          font-size: 1.5em;
+          @include portrait-mobile {
+            margin-right: 10px !important;
+          }
+        }
+      }
+    }
     .right {
+      display: flex;
+      align-items: center;
       margin-right: 20px;
+      margin-left: auto;
       @include portrait-mobile {
         margin-right: 10px;
       }
@@ -83,34 +127,37 @@
       .quiz-timer {
         display: flex;
         align-items: center;
-      }
-      .ico-watch {
-        width: 24px;
-        height: 24px;
-        background-image: url("../assets/images/ico_watch.svg");
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-right: 10px;
-        @include portrait-mobile {
-          margin-right: 5px;
-          background-size: 80%;
+        @media (min-width: 577px) {
+          display: none;
         }
-        @include landscape-mobile {
-          margin-right: 5px;
-          background-size: 80%;
+        .ico-watch {
+          width: 24px;
+          height: 24px;
+          background-image: url("../assets/images/ico_watch.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-right: 10px;
+          @include portrait-mobile {
+            margin-right: 5px;
+            background-size: 80%;
+          }
+          @include landscape-mobile {
+            margin-right: 5px;
+            background-size: 80%;
+          }
+          @include dark-mode {
+            background-image: url("../assets/images/ico_watch_white.svg");
+          }
         }
-        @include dark-mode {
-          background-image: url("../assets/images/ico_watch_white.svg");
-        }
-      }
-      .counter {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 20px;
-        font-weight: 500;
-        @include portrait-mobile {
-          margin-right: 10px !important;
+        .counter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-right: 20px;
+          font-weight: 500;
+          @include portrait-mobile {
+            margin-right: 10px !important;
+          }
         }
       }
       .btn-menu {
@@ -127,9 +174,6 @@
         @include dark-mode {
           background-image: url("../assets/images/ico_hbg_menu_white.svg");
         }
-      }
-      .counter {
-        margin-right: 20px;
       }
     }
   }

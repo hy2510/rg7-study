@@ -2,6 +2,7 @@
 #ebook {
   position: relative;
   width: 100%;
+  height: 100vh;
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
@@ -13,8 +14,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    // -webkit-backdrop-filter: blur(5px);
-    // backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     z-index: 0;
   }
   @include landscape {
@@ -22,7 +23,7 @@
   }
 }
 
-// eBook 페이지
+// eBook Story 내용 > 각 페이지
 .ebook-page {
   position: relative;
   img {
@@ -44,7 +45,7 @@
   }
 }
 
-// eBook 헤더
+// eBook Story 내용 > 헤더
 .ebook-header {
   height: 60px;
   position: fixed;
@@ -66,57 +67,31 @@
   }
 }
 
-// eBook 플레이바 > 드롭다운 메뉴
-.ebook-play-bar-drop-down-menu {
+// eBook Story 내용 > 본문 (PC버전)
+.ebook-body-pc {
+  margin: auto;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
-  .read-mode-option {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    cursor: pointer;
-  }
-  .read-mode-option-menu {
-    min-width: 150px;
-    position: absolute;
-    bottom: calc(100% + 15px);
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
+  z-index: 3;
+  .ebook-contents {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-radius: 10px;
-    border: 1.5px solid #333;
-    z-index: 2;
-    .menu-name {
-      padding: 5px 5px 10px 5px;
-      font-weight: 600;
-      font-size: 1.1em;
-      border-bottom: 1px dashed #333;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    .pages {
+      display: flex;
     }
-    .menu-item {
-      padding: 10px 5px 5px 10px;
-      font-weight: 600;
-      cursor: pointer;
-      &.on {
-        background-color: #2877ff;
-        border-radius: 5px;
-      }
-    }
-  }
-  .light-box {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
-// eBook 플레이바
-.ebook-progress-bar {
+// eBook Story 내용 > 플레이바 (PC버전)
+.ebook-progress-bar-pc {
   width: 100%;
   height: 4px;
   background-color: #555;
@@ -129,7 +104,7 @@
     transition: width 0.2s;
   }
 }
-.ebook-play-bar {
+.ebook-play-bar-pc {
   width: calc(100% - 40px);
   height: 56px;
   color: #fff;
@@ -150,13 +125,6 @@
       display: flex;
       align-items: center;
       gap: 3px;
-    }
-    .read-mode-button {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
   }
   .ebook-play-bar-pc-area-c {
@@ -216,35 +184,59 @@
       justify-content: center;
       gap: 5px;
     }
-    .menu-button {
-      cursor: pointer;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-  &.mobile {
-    width: 100%;
-    padding: 0;
-    .ebook-play-bar-pc-area-l {
-      gap: 10px;
-    }
-    .ebook-play-bar-pc-area-c {
-      gap: 10px;
-    }
-    .ebook-play-bar-pc-area-r {
-      gap: 10px;
-      .menu-button {
-        width: 40px;
-        height: 40px;
-      }
-    }
   }
 }
 
-// eBook 페이지 양쪽 화살표
+// eBook Story 내용 > 플레이바 > 드롭다운 메뉴
+.ebook-play-bar-drop-down-menu {
+  position: relative;
+  .read-mode-option {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+  }
+  .read-mode-option-menu {
+    min-width: 150px;
+    position: absolute;
+    bottom: calc(100% + 15px);
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 10px;
+    border: 1.5px solid #333;
+    z-index: 2;
+    .menu-name {
+      padding: 5px 5px 10px 5px;
+      font-weight: 600;
+      font-size: 1.1em;
+      border-bottom: 1px dashed #333;
+    }
+    .menu-item {
+      padding: 10px 5px 5px 10px;
+      font-weight: 600;
+      cursor: pointer;
+      &.on {
+        background-color: #2877ff;
+        border-radius: 5px;
+      }
+    }
+  }
+  .light-box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+// eBook Story 내용 > 페이지 양쪽 화살표 (PC버전)
 .ebook-page-arrows {
   display: flex;
   justify-content: space-between;
@@ -266,9 +258,9 @@
   }
 }
 .slide-in-right {
-  -webkit-animation: slide-in-right 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  -webkit-animation: slide-in-right 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both !important;
-  animation: slide-in-right 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+  animation: slide-in-right 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
 }
 @-webkit-keyframes slide-in-right {
   0% {
@@ -291,9 +283,9 @@
   }
 }
 .slide-in-left {
-  -webkit-animation: slide-in-left 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+  -webkit-animation: slide-in-left 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both !important;
-  animation: slide-in-left 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
+  animation: slide-in-left 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both !important;
 }
 @-webkit-keyframes slide-in-left {
   0% {
@@ -316,66 +308,9 @@
   }
 }
 
-// eBook 콘텐츠 PC
-.ebook-body-pc {
-  margin: auto;
-  height: calc(100vh - 60px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 3;
-  .ebook-contents {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    .pages {
-      display: flex;
-    }
-  }
-}
+// eBook Story 내용 > 본문 (모바일버전)
 
-// eBook 콘텐츠 모바일 세로
-.ebook-body-mobile-p {
-  height: calc(100% - 60px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-// eBook 단어장 > 단어 리스트
-.ebook-voca-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  .voca-item {
-    padding: 0 10px 10px;
-    border-bottom: 1.5px dashed #f0f2f5;
-    cursor: pointer;
-    .word-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 15px;
-      .word {
-        font-size: 1.8em;
-      }
-    }
-    .mean {
-      font-size: 1.2em;
-      color: #999;
-    }
-  }
-}
-
-// eBook 단어장
+// eBook Story 내용 > 단어장
 .ebook-vocabulary-note {
   position: absolute;
   top: 0;
@@ -450,4 +385,29 @@
   left: 0;
   right: 0;
   z-index: 99;
+}
+
+// eBook Story 내용 > 단어장 > 단어 리스트
+.ebook-voca-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .voca-item {
+    padding: 0 10px 10px;
+    border-bottom: 1.5px dashed #f0f2f5;
+    cursor: pointer;
+    .word-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      .word {
+        font-size: 1.8em;
+      }
+    }
+    .mean {
+      font-size: 1.2em;
+      color: #999;
+    }
+  }
 }

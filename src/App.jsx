@@ -59,7 +59,7 @@ export default function App() {
   //
   //
   // (샘플) 선택한 BR 학습의 전체 퀴즈 데이터 가져오기 (quizDataKa, quizData2a)
-  const [getQuizData, _getQuizData] = useState(quizDataKa);
+  const [getQuizData, _getQuizData] = useState(quizData2a);
 
   // (샘플) 전체 퀴즈 데이터에서 진행중인 순서에 해당하는 스텝 정보
   const [stepOrder, _stepOrder] = useState("step1");
@@ -68,7 +68,7 @@ export default function App() {
   /* KA themes: theme-jungle, theme-antarctica, theme-zoo-1, theme-zoo-2 */
   /* KB, KC themes: theme-forest(토끼와 거북이), theme-kids-room(강아지와 고양이), theme-space(로켓과 우주인), theme-farm(병아리와 올빼미), */
   /* 1A 이상 themes: theme-season-spring, theme-season-summer, theme-season-autumn, theme-season-winter, theme-playground, theme-camping */
-  const [quizTheme, _quizTheme] = useState("theme-kids-room");
+  const [quizTheme, _quizTheme] = useState("theme-playground");
 
   //
   //
