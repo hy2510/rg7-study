@@ -1,3 +1,4 @@
+import { useState } from "react";
 import icoSpeaker from "../assets/images/ico_speaker.svg";
 
 export default function BtnPlay(props) {
@@ -27,9 +28,12 @@ export default function BtnPlay(props) {
         return;
       }
     });
+    isPlaying ? _playingText("Listening") : _playingText("Listen");
   };
   const progNone = props.progNone;
   const marginBottom = props.marginBottom;
+
+  const [playingText, _playingText] = useState("Listen");
 
   return (
     <>
@@ -42,7 +46,7 @@ export default function BtnPlay(props) {
         {progNone ? null : (
           <>
             <span className="progress-box">
-              <span className="text">Listen</span>
+              <span className="text">{playingText}</span>
             </span>
             <span id="progress" className="d-none"></span>
           </>

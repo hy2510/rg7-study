@@ -152,6 +152,10 @@ export default function EBook() {
             _isAudioPause={_isAudioPause}
             _viewSideMenu={_viewSideMenu}
             _viewVocaList={_viewVocaList}
+            touchStart={touchStart}
+            touchEnd={touchEnd}
+            _touchStart={_touchStart}
+            _touchEnd={_touchEnd}
             IsMobile={IsMobile}
           />
         </>

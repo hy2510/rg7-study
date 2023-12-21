@@ -21,6 +21,10 @@ import img_story from "../assets/images/ebook/img_story.svg";
 import img_study from "../assets/images/ebook/img_study.svg";
 import img_word from "../assets/images/ebook/img_word.svg";
 import ico_word from "../assets/images/ebook/ico_word.svg";
+import ico_speed_08 from "../assets/images/ebook/ico_speed08.svg";
+import ico_speed_10 from "../assets/images/ebook/ico_speed10.svg";
+import ico_speed_12 from "../assets/images/ebook/ico_speed12.svg";
+import ico_speed_15 from "../assets/images/ebook/ico_speed15.svg";
 
 // eBook 헤더
 export const EbookHeader = ({ _viewSideMenu }) => {
@@ -113,7 +117,7 @@ export const EbookPageArrows = ({
   );
 };
 
-// eBook 플레이바 > 드롭다운 메뉴
+// eBook 플레이바 > 드롭다운 메뉴 (플레이 모드 설정)
 export const EbookPlayBarDropdownMenu = ({ menuName, menuItems }) => {
   // 기능: 메뉴 팝업 띄우기 및 버튼 선택시 이벤트
   const [viewMenu, _viewMenu] = useState(false);
@@ -168,6 +172,90 @@ export const EbookPlayBarDropdownMenu = ({ menuName, menuItems }) => {
   );
 };
 
+// eBook 플레이바 > 모바일용 플레이 모드 설정창
+export const EbookPlayModeMobile = ({
+  viewEbookPlayModeMobile,
+  _viewEbookPlayModeMobile,
+}) => {
+  const Label = ({ text }) => {
+    return <div className="label">{text}</div>;
+  };
+
+  const SelectBox = ({ children }) => {
+    return <div className="select-box">{children}</div>;
+  };
+
+  const SelectButton = ({ name, active }) => {
+    return (
+      <div className={active ? "select-button on" : "select-button"}>
+        <div className="radio"></div>
+        {name}
+      </div>
+    );
+  };
+
+  const PageTurningMode = () => {
+    const ChooseButton = ({ name, active }) => {
+      return (
+        <div className={active ? "choose-button on" : "choose-button"}>
+          {name}
+        </div>
+      );
+    };
+
+    return (
+      <div className="page-turning-mode">
+        <ChooseButton name={"수동으로 넘기기"} active={false} />
+        <ChooseButton name={"자동으로 넘기기"} active={true} />
+      </div>
+    );
+  };
+
+  const [windowSlideIn, _windowSlideIn] = useState(true);
+
+  const windowSlideOut = () => {
+    _windowSlideIn(false);
+    setTimeout(() => {
+      _viewEbookPlayModeMobile(false);
+    }, 500);
+  };
+
+  return (
+    <div
+      className={
+        windowSlideIn
+          ? "ebook-play-mode-mobile slide-in-bottom"
+          : "ebook-play-mode-mobile slide-out-bottom"
+      }
+    >
+      <div className="container">
+        <Label text={"읽기 모드"} />
+        <SelectBox>
+          <SelectButton name={"Basic"} active />
+          <SelectButton name={"No Text"} />
+          <SelectButton name={"No Highlight"} />
+          <SelectButton name={"No Audio"} />
+        </SelectBox>
+        <Label text={"읽기 속도"} />
+        <SelectBox>
+          <SelectButton name={"0.8x"} />
+          <SelectButton name={"1.0x"} active />
+          <SelectButton name={"1.2x"} />
+          <SelectButton name={"1.5x"} />
+        </SelectBox>
+        <Label text={"책장 넘기기"} />
+        <PageTurningMode />
+      </div>
+      <div
+        className="light-box"
+        onClick={() => {
+          windowSlideOut();
+        }}
+      ></div>
+    </div>
+  );
+};
+
 // eBook 플레이바
 export const EbookPlayBar = ({
   progressWidth,
@@ -183,6 +271,8 @@ export const EbookPlayBar = ({
   IsMobile,
   _viewSideMenu,
 }) => {
+  const [viewEbookPlayModeMobile, _viewEbookPlayModeMobile] = useState(false);
+
   return (
     <>
       {/* 프로그레스바 */}
@@ -195,9 +285,22 @@ export const EbookPlayBar = ({
         <div className="ebook-play-bar-pc-area-l">
           {IsMobile() ? (
             <>
-              <div className="read-mode-button">
-                <img src={ico_setting2} width={24} height={24} />
+              <div
+                className="read-mode-button"
+                onClick={() => {
+                  viewEbookPlayModeMobile
+                    ? _viewEbookPlayModeMobile(false)
+                    : _viewEbookPlayModeMobile(true);
+                }}
+              >
+                <img src={ico_speed_10} width={30} height={30} />
               </div>
+              {viewEbookPlayModeMobile && (
+                <EbookPlayModeMobile
+                  viewEbookPlayModeMobile={viewEbookPlayModeMobile}
+                  _viewEbookPlayModeMobile={_viewEbookPlayModeMobile}
+                />
+              )}
             </>
           ) : (
             <>
@@ -266,7 +369,7 @@ export const EbookPlayBar = ({
               _viewVocaList(true);
             }}
           >
-            <img src={ico_word} width={30} height={30} alt="" />
+            <img src={ico_word} width={28} height={28} alt="" />
           </div>
           {IsMobile() ? (
             <div

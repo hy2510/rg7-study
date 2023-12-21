@@ -1,0 +1,17 @@
+.theme-jungle {
+  background-color: #b6dfff;
+  background-image: url("./jungle/theme-jungle-day-left.svg"),
+    url("./jungle/theme-jungle-day-right.svg"),
+    url("./jungle/theme-jungle-day-bottom.svg");
+  background-position: left 0 bottom 0, right 0 bottom 0, top 0 center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+}
+
+.theme-forest {
+  background-color: #aee062;
+  background-image: url("./forest/theme-forest-day-left.svg"),
+    url("./forest/theme-forest-day-right.svg"),
+    url("./forest/theme-forest-day-pattern.svg");
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-position: left 5% bottom 20px, right 5% bottom 20px, bottom;
+}

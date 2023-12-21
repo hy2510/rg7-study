@@ -45,7 +45,9 @@ import nextQuestion from "./assets/sound/next_question.mp3";
 // (샘플) 퀴즈 데이터 가져오기
 import quizDataKa from "./assets/sample-data/eb-ka-001.json";
 import quizData2a from "./assets/sample-data/eb-2a-028.json";
+
 import EBook from "./ebook/Ebook";
+import Quiz from "./quiz/Quiz";
 
 export default function App() {
   // 퀴즈 효과 사운드
@@ -59,7 +61,7 @@ export default function App() {
   //
   //
   // (샘플) 선택한 BR 학습의 전체 퀴즈 데이터 가져오기 (quizDataKa, quizData2a)
-  const [getQuizData, _getQuizData] = useState(quizData2a);
+  const [getQuizData, _getQuizData] = useState(quizDataKa);
 
   // (샘플) 전체 퀴즈 데이터에서 진행중인 순서에 해당하는 스텝 정보
   const [stepOrder, _stepOrder] = useState("step1");
@@ -68,7 +70,7 @@ export default function App() {
   /* KA themes: theme-jungle, theme-antarctica, theme-zoo-1, theme-zoo-2 */
   /* KB, KC themes: theme-forest(토끼와 거북이), theme-kids-room(강아지와 고양이), theme-space(로켓과 우주인), theme-farm(병아리와 올빼미), */
   /* 1A 이상 themes: theme-season-spring, theme-season-summer, theme-season-autumn, theme-season-winter, theme-playground, theme-camping */
-  const [quizTheme, _quizTheme] = useState("theme-playground");
+  const [quizTheme, _quizTheme] = useState("theme-jungle");
 
   //
   //
@@ -80,7 +82,7 @@ export default function App() {
       case quizDataKa:
         switch (stepOrder) {
           case "step1":
-            return <ListeningActivity2 />;
+            return <ListeningActivity1 />;
             break;
           case "step2":
             return <VocabularyTest1 />;
@@ -138,7 +140,7 @@ export default function App() {
   return (
     <>
       {/* 학습 */}
-      {/* <QuizContext.Provider
+      <QuizContext.Provider
         value={{
           stepOrder,
           _stepOrder,
@@ -155,14 +157,17 @@ export default function App() {
         }}
       >
         <div className={quizTheme}>
-          <div className="quiz-area">
+          {/* 원본 */}
+          {/* <div className="quiz-area">
             <QuizHeader />
             {QuizType()}
-          </div>
+          </div> */}
+          {/* 테스트 */}
+          <Quiz />
         </div>
-      </QuizContext.Provider> */}
+      </QuizContext.Provider>
       {/* 이북 */}
-      <EBook />
+      {/* <EBook /> */}
     </>
   );
 }
